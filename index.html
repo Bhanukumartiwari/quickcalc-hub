@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickCalc Hub - Free Online Calculators</title>
+  <meta name="description" content="QuickCalc Hub offers free online calculators like EMI Calculator, Age Calculator, BMI Calculator, and Word Counter. Simple, fast, and accurate tools for daily use.">
+  <meta name="keywords" content="EMI calculator, Age calculator, BMI calculator, Word counter, Free online tools, QuickCalc Hub">
+  <meta name="author" content="QuickCalc Hub">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg,#141e30,#243b55); color: #fff; overflow-x: hidden; }
+    header { padding: 60px 20px; text-align: center; background: linear-gradient(135deg,#1f4037,#99f2c8); color:#fff; }
+    header h1 { font-size: 3em; margin-bottom: 10px; animation: fadeIn 2s ease; }
+    header p { font-size: 1.2em; }
+    nav { position: sticky; top:0; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); text-align:center; padding: 15px; z-index: 100; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #00e6e6; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; padding: 40px 20px; max-width:1200px; margin: auto; }
+    .card { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s; backdrop-filter: blur(10px); }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.5); }
+    h2 { margin-bottom: 10px; font-size: 1.5em; color: #00f7ff; }
+    p { font-size: 0.95em; margin-bottom: 15px; color: #e0e0e0; }
+    input, button, textarea { padding: 10px; border-radius: 8px; border: none; margin: 6px 0; width: 100%; font-size: 1em; }
+    button { background: linear-gradient(135deg,#00f260,#0575e6); color: #fff; cursor: pointer; font-weight: bold; transition: opacity 0.3s; }
+    button:hover { opacity: 0.9; }
+    .result { margin-top: 10px; font-weight: bold; color: #fff; background: rgba(0,0,0,0.4); padding: 8px; border-radius: 6px; line-height: 1.6; }
+    footer { text-align:center; padding:20px; background:#000; margin-top:40px; font-size: 0.9em; color: #aaa; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(-20px);} to { opacity:1; transform:translateY(0);} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>QuickCalc Hub</h1>
+    <p>Interactive Online Tools: EMI | Age | BMI | Word Counter</p>
+  </header>
+  <nav>
+    <a href="#emi">EMI</a>
+    <a href="#age">Age</a>
+    <a href="#bmi">BMI</a>
+    <a href="#word">Word Counter</a>
+  </nav>
+
+  <section class="tools-grid">
+    <!-- EMI Calculator -->
+    <div class="card" id="emi">
+      <h2>EMI Calculator</h2>
+      <p>Find your monthly loan installment quickly.</p>
+      <input type="number" id="loan" placeholder="Loan Amount (₹)">
+      <input type="number" id="rate" placeholder="Interest Rate (% per year)">
+      <input type="number" id="time" placeholder="Tenure (years)">
+      <button onclick="calculateEMI()">Calculate EMI</button>
+      <div class="result" id="emiResult"></div>
+    </div>
+
+    <!-- Age Calculator -->
+    <div class="card" id="age">
+      <h2>Age Calculator</h2>
+      <p>Enter your date of birth to know your age.</p>
+      <input type="date" id="dob">
+      <button onclick="calculateAge()">Calculate Age</button>
+      <div class="result" id="ageResult"></div>
+    </div>
+
+    <!-- BMI Calculator -->
+    <div class="card" id="bmi">
+      <h2>BMI Calculator</h2>
+      <p>Check your Body Mass Index instantly.</p>
+      <input type="number" id="weight" placeholder="Weight (kg)">
+      <input type="number" id="height" placeholder="Height (cm)">
+      <button onclick="calculateBMI()">Calculate BMI</button>
+      <div class="result" id="bmiResult"></div>
+    </div>
+
+    <!-- Word Counter -->
+    <div class="card" id="word">
+      <h2>Word Counter</h2>
+      <p>Count words in your text with one click.</p>
+      <textarea id="text" rows="6" placeholder="Type or paste text here..."></textarea>
+      <button onclick="countWords()">Count Words</button>
+      <div class="result" id="wordResult"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 QuickCalc Hub | Free Responsive Tools | Designed for Speed & SEO</p>
+  </footer>
+
+  <script>
+    function calculateEMI() {
+      let P = parseFloat(document.getElementById('loan').value);
+      let annualRate = parseFloat(document.getElementById('rate').value);
+      let years = parseFloat(document.getElementById('time').value);
+      if(P && annualRate && years) {
+        let R = annualRate / 12 / 100;
+        let N = years * 12;
+        let EMI = (P * R * Math.pow(1+R, N)) / (Math.pow(1+R, N)-1);
+        let totalPayment = EMI * N;
+        let totalInterest = totalPayment - P;
+        document.getElementById('emiResult').innerHTML = `
+          <strong>Monthly EMI:</strong> ₹${EMI.toFixed(2)}<br>
+          <strong>Principal Amount:</strong> ₹${P.toFixed(2)}<br>
+          <strong>Total Interest Payable:</strong> ₹${totalInterest.toFixed(2)}<br>
+          <strong>Total Payment (Principal + Interest):</strong> ₹${totalPayment.toFixed(2)}<br>
+          <strong>Loan Tenure:</strong> ${years} years (${N} months)
+        `;
+      }
+    }
+
+    function calculateAge() {
+      let dob = new Date(document.getElementById('dob').value);
+      if(dob && !isNaN(dob)) {
+        let today = new Date();
+        let ageYears = today.getFullYear() - dob.getFullYear();
+        let ageMonths = today.getMonth() - dob.getMonth();
+        let ageDays = today.getDate() - dob.getDate();
+
+        if (ageDays < 0) {
+          ageMonths--;
+          ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        }
+        if (ageMonths < 0) {
+          ageYears--;
+          ageMonths += 12;
+        }
+
+        document.getElementById('ageResult').innerHTML = `
+          <strong>Age:</strong> ${ageYears} years, ${ageMonths} months, ${ageDays} days
+        `;
+      }
+    }
+
+    function calculateBMI() {
+      let w = parseFloat(document.getElementById('weight').value);
+      let h = parseFloat(document.getElementById('height').value) / 100;
+      if(w && h) {
+        let bmi = w / (h*h);
+        let status = bmi<18.5?"Underweight":bmi<25?"Normal weight":bmi<30?"Overweight":"Obese";
+        let healthyMin = (18.5 * h*h).toFixed(1);
+        let healthyMax = (24.9 * h*h).toFixed(1);
+        document.getElementById('bmiResult').innerHTML = `
+          <strong>Your BMI:</strong> ${bmi.toFixed(2)} (${status})<br>
+          <strong>Healthy Weight Range for your height:</strong> ${healthyMin} kg - ${healthyMax} kg
+        `;
+      }
+    }
+
+    function countWords() {
+      let text = document.getElementById('text').value.trim();
+      let words = text.split(/\s+/).filter(word => word.length>0);
+      let chars = text.replace(/\s/g, '').length;
+      document.getElementById('wordResult').innerHTML = `
+        <strong>Word Count:</strong> ${words.length}<br>
+        <strong>Character Count (no spaces):</strong> ${chars}
+      `;
+    }
+  </script>
+</body>
+</html>
