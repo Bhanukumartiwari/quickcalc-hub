@@ -1,48 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>QuickCalc Hub point — All-in-One Calculators</title>
-  <meta name="description" content="QuickCalc Hub — Free online calculators: EMI, Age, BMI, Word Counter, SIP, Calorie, and Text Case Converter. Fast, responsive, and SEO-friendly.">
-  <meta name="keywords" content="EMI calculator, SIP calculator, BMI calculator, calorie calculator, word counter, text case converter, free online tools">
-  <meta name="author" content="QuickCalc Hub">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuickCalc Hub — All-in-One Calculators</title>
+
+  <!-- SEO -->
+  <meta name="description" content="QuickCalc Hub — Free online calculators: EMI, SIP, BMI, Calorie, Age, Word Counter, and Text Tools. Fast, responsive, SEO-friendly." />
+  <meta name="keywords" content="EMI calculator, SIP calculator, BMI calculator, calorie calculator, TDEE, word counter, text case converter, free online tools" />
+  <meta name="author" content="QuickCalc Hub" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="QuickCalc Hub — Free Online Calculators">
-  <meta property="og:description" content="Use free calculators: EMI, SIP, BMI, Calorie, Age, Word Counter, Text Case Converter. Fast & responsive.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourusername.github.io/">
+  <meta property="og:title" content="QuickCalc Hub — Free Online Calculators" />
+  <meta property="og:description" content="Use free calculators: EMI, SIP, BMI, Calorie, Age, Word Counter, Text Case Converter. Fast & responsive." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bhanukumartiwari.github.io/quickcalc-hub/" />
 
-  <!-- Favicon (replace with your favicon file) -->
+  <!-- favicon -->
   <link rel="icon" href="/favicon.ico">
 
-  <!-- AdSense Global Script - replace ca-pub-XXXXXXXXXXXX with your AdSense publisher id -->
-  <!-- Only add this if you have AdSense for websites approved -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "QuickCalc Hub",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "url": "https://bhanukumartiwari.github.io/quickcalc-hub/",
+    "description": "QuickCalc Hub - free online calculators including EMI, SIP, BMI, Calorie/TDEE, Age, Word Counter and Text Tools.",
+    "creator": { "@type": "Person", "name": "Bhanu Kumar Tiwari" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <!-- AdSense (global) - publisher id inserted -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635014658436274"
+    crossorigin="anonymous"></script>
 
   <!-- GSAP for animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <style>
-    :root{--bg1:#071022; --bg2:#0b1a2b; --card:rgba(255,255,255,0.06); --accent1:#00f6ff; --accent2:#ff3bd6}
+    :root{
+      --bg1:#071022; --bg2:#0b1a2b;
+      --card:rgba(255,255,255,0.06);
+      --accent1:#00f6ff; --accent2:#ff3bd6;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:#e8f0ff;}
-    header{padding:48px 20px;text-align:center;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));backdrop-filter:blur(6px)}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:#e8f0ff;-webkit-font-smoothing:antialiased}
+    header{padding:40px 20px;text-align:center;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));backdrop-filter:blur(6px)}
     .brand{font-size:2rem;font-weight:700;letter-spacing:0.6px;color:var(--accent1);text-shadow:0 0 18px rgba(0,246,255,0.06)}
     .tag{color:#cbe9ff;margin-top:6px}
-    nav{display:flex;gap:12px;justify-content:center;padding:12px 10px;position:sticky;top:0;background:rgba(5,10,20,0.5);backdrop-filter:blur(6px);z-index:50}
+    nav{display:flex;gap:10px;justify-content:center;padding:10px;position:sticky;top:0;background:rgba(5,10,20,0.5);backdrop-filter:blur(6px);z-index:50}
     nav a{color:#cfefff;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
-    nav a:hover{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#001;margin-left:2px}
-    .container{max-width:1120px;margin:28px auto;padding:0 18px}
+    nav a:hover{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#001}
+    .container{max-width:1120px;margin:24px auto;padding:0 18px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
     .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02);transition:transform .25s}
     .card:hover{transform:translateY(-6px)}
-    h2{color:var(--accent1);margin:0 0 8px 0;font-size:1.1rem}
+    h2{color:var(--accent1);margin:0 0 8px 0;font-size:1.05rem}
     p.lead{color:#bfdcff;margin:0 0 12px 0}
     input,select,textarea,button{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
     textarea{min-height:110px}
-    button.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#001;font-weight:700;border:none;cursor:pointer}
+    button.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#001;font-weight:700;border:none;cursor:pointer;padding:10px}
     .result{margin-top:10px;padding:10px;border-radius:8px;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.12));line-height:1.45}
     .fullwidth{grid-column:1/-1}
     footer{padding:20px 10px;text-align:center;color:#98bcd9;margin-top:28px}
@@ -52,8 +74,19 @@
 <body>
   <header>
     <div class="brand">QuickCalc Hub</div>
-    <div class="tag">Free online calculators — EMI, SIP, BMI, Calorie, Age, Word Counter & Text Tools</div>
+    <div class="tag">Free online calculators — EMI · SIP · BMI · Calorie · Age · Word Counter · Text Tools</div>
   </header>
+
+  <!-- Top AdSense Slot (replace data-ad-slot if you want another unit) -->
+  <div style="text-align:center; margin:18px 0;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2635014658436274"
+         data-ad-slot="6466754583"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
   <nav>
     <a href="#emi">EMI</a>
@@ -67,6 +100,7 @@
 
   <main class="container">
     <section class="grid">
+
       <!-- EMI -->
       <div class="card" id="emi">
         <h2>EMI Calculator</h2>
@@ -108,7 +142,7 @@
         <div class="result" id="bmiResult">Results will appear here</div>
       </div>
 
-      <!-- Calorie -->
+      <!-- Calorie (TDEE) -->
       <div class="card" id="calorie">
         <h2>Calorie Calculator (TDEE)</h2>
         <p class="lead">Estimate BMR and total daily calories (TDEE).</p>
@@ -151,27 +185,31 @@
         <div class="result" id="caseResult">Results will appear here</div>
       </div>
 
-      <!-- Ad Placeholder (full width) -->
+      <!-- Full-width placeholder (optional) -->
       <div class="fullwidth" style="text-align:center">
-        <!-- Add AdSense code here when ready. Example placeholder: -->
-        <!--
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-client="ca-pub-XXXXXXXXXXXX"
-             data-ad-slot="YYYYYYYYYY"
-             data-ad-format="auto"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        -->
+        <!-- If you want an inline ad between tools, put an <ins> block here. -->
       </div>
 
     </section>
 
-    <footer>
-      <p>© 2025 QuickCalc Hub — Built for speed, SEO & conversions. Replace favicon and logo with your brand files.</p>
-    </footer>
+    <!-- Bottom AdSense Slot (replace data-ad-slot if needed) -->
+    <div class="fullwidth" style="text-align:center; margin-top:22px;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2635014658436274"
+           data-ad-slot="1661968704"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
   </main>
 
-  <!-- All JS: calculators + animations -->
+  <footer>
+    <p>© 2025 QuickCalc Hub — Built for speed, SEO & conversions.</p>
+  </footer>
+
+  <!-- Calculators JavaScript -->
   <script>
     /* ---------- Utilities ---------- */
     function fmtCurrency(x){return '₹' + Number(x).toLocaleString('en-IN',{maximumFractionDigits:2})}
@@ -186,12 +224,12 @@
       const R = annualRate/12/100; const N = years*12;
       const EMI = (P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
       const totalPayment = EMI*N; const totalInterest = totalPayment - P;
-      document.getElementById('emiResult').innerHTML = `\n        <strong>Monthly EMI:</strong> ${fmtCurrency(EMI)}<br>
-        <strong>Principal Amount:</strong> ${fmtCurrency(P)}<br>
-        <strong>Total Interest Payable:</strong> ${fmtCurrency(totalInterest)}<br>
-        <strong>Total Payment (Principal + Interest):</strong> ${fmtCurrency(totalPayment)}<br>
-        <strong>Loan Tenure:</strong> ${years} years (${N} months)`;
-      // animate highlight
+      document.getElementById('emiResult').innerHTML =
+        `<strong>Monthly EMI:</strong> ${fmtCurrency(EMI)}<br>
+         <strong>Principal Amount:</strong> ${fmtCurrency(P)}<br>
+         <strong>Total Interest Payable:</strong> ${fmtCurrency(totalInterest)}<br>
+         <strong>Total Payment (Principal + Interest):</strong> ${fmtCurrency(totalPayment)}<br>
+         <strong>Loan Tenure:</strong> ${years} years (${N} months)`;
       gsap.fromTo('#emiResult',{opacity:0,y:8},{opacity:1,y:0,duration:0.6});
     }
 
@@ -204,11 +242,12 @@
       const r = annual/100/12; const n = years*12;
       const fv = P * ((Math.pow(1+r,n)-1)/r) * (1+r);
       const invested = P*n; const returns = fv - invested;
-      document.getElementById('sipResult').innerHTML = `\n        <strong>Monthly Investment:</strong> ${fmtCurrency(P)}<br>
-        <strong>Investment Period:</strong> ${years} years (${n} months)<br>
-        <strong>Total Invested:</strong> ${fmtCurrency(invested)}<br>
-        <strong>Estimated Returns:</strong> ${fmtCurrency(returns)}<br>
-        <strong>Maturity Amount:</strong> ${fmtCurrency(fv)}`;
+      document.getElementById('sipResult').innerHTML =
+        `<strong>Monthly Investment:</strong> ${fmtCurrency(P)}<br>
+         <strong>Investment Period:</strong> ${years} years (${n} months)<br>
+         <strong>Total Invested:</strong> ${fmtCurrency(invested)}<br>
+         <strong>Estimated Returns:</strong> ${fmtCurrency(returns)}<br>
+         <strong>Maturity Amount:</strong> ${fmtCurrency(fv)}`;
       gsap.fromTo('#sipResult',{opacity:0,y:8},{opacity:1,y:0,duration:0.6});
     }
 
@@ -230,8 +269,9 @@
       if(!w||!hCm){document.getElementById('bmiResult').innerText='Please enter weight and height.';return}
       const h=hCm/100; const bmi=w/(h*h); const status = bmi<18.5? 'Underweight' : bmi<25? 'Normal weight' : bmi<30? 'Overweight' : 'Obese';
       const healthyMin=(18.5*h*h).toFixed(1); const healthyMax=(24.9*h*h).toFixed(1);
-      document.getElementById('bmiResult').innerHTML = `\n        <strong>Your BMI:</strong> ${bmi.toFixed(2)} (${status})<br>
-        <strong>Healthy weight range for your height:</strong> ${healthyMin} kg - ${healthyMax} kg`;
+      document.getElementById('bmiResult').innerHTML =
+        `<strong>Your BMI:</strong> ${bmi.toFixed(2)} (${status})<br>
+         <strong>Healthy weight range for your height:</strong> ${healthyMin} kg - ${healthyMax} kg`;
       gsap.fromTo('#bmiResult',{opacity:0,y:8},{opacity:1,y:0,duration:0.6});
     }
 
@@ -245,10 +285,11 @@
       if(!age||!weight||!height){document.getElementById('calorieResult').innerText='Please fill all fields.';return}
       let bmr = gender==='male' ? (10*weight + 6.25*height - 5*age + 5) : (10*weight + 6.25*height - 5*age -161);
       const tdee = Math.round(bmr * activity);
-      document.getElementById('calorieResult').innerHTML = `\n        <strong>BMR:</strong> ${Math.round(bmr)} kcal/day<br>
-        <strong>TDEE (maintain weight):</strong> ${tdee} kcal/day<br>
-        <strong>To lose ~0.5 kg/week:</strong> ${tdee - 500} kcal/day<br>
-        <strong>To gain ~0.5 kg/week:</strong> ${tdee + 500} kcal/day`;
+      document.getElementById('calorieResult').innerHTML =
+        `<strong>BMR:</strong> ${Math.round(bmr)} kcal/day<br>
+         <strong>TDEE (maintain weight):</strong> ${tdee} kcal/day<br>
+         <strong>To lose ~0.5 kg/week:</strong> ${tdee - 500} kcal/day<br>
+         <strong>To gain ~0.5 kg/week:</strong> ${tdee + 500} kcal/day`;
       gsap.fromTo('#calorieResult',{opacity:0,y:8},{opacity:1,y:0,duration:0.6});
     }
 
@@ -257,7 +298,10 @@
       const text=document.getElementById('text').value || '';
       const words = text.trim().length ? text.trim().split(/\s+/).filter(w=>w.length>0) : [];
       const charsNoSpaces = text.replace(/\s/g,'').length; const charsWithSpaces = text.length;
-      document.getElementById('wordResult').innerHTML = `\n        <strong>Words:</strong> ${words.length}<br>\n        <strong>Characters (no spaces):</strong> ${charsNoSpaces}<br>\n        <strong>Characters (with spaces):</strong> ${charsWithSpaces}`;
+      document.getElementById('wordResult').innerHTML =
+        `<strong>Words:</strong> ${words.length}<br>
+         <strong>Characters (no spaces):</strong> ${charsNoSpaces}<br>
+         <strong>Characters (with spaces):</strong> ${charsWithSpaces}`;
       gsap.fromTo('#wordResult',{opacity:0,y:8},{opacity:1,y:0,duration:0.6});
     }
 
@@ -277,14 +321,9 @@
     /* ---------- Page entrance animation ---------- */
     window.addEventListener('load', ()=>{
       gsap.utils.toArray('.card').forEach((el, i)=>{
-        gsap.fromTo(el,{opacity:0,y:18},{opacity:1,y:0,duration:0.7,delay: i*0.08, ease:'power3.out'});
+        gsap.fromTo(el,{opacity:0,y:18},{opacity:1,y:0,duration:0.7,delay: i*0.06, ease:'power3.out'});
       });
     });
-  </script>
-</body>
-</html>
-
-    }
   </script>
 </body>
 </html>
